@@ -27,10 +27,7 @@ public class RegistrationController {
     @PostMapping("/register")
     public String registerUser(@RequestBody UserModel userModel, final HttpServletRequest request) {
         User user = userService.registerUser(userModel);
-        publisher.publishEvent(new RegistrationCompleteEvent(
-                user,
-                applicationUrl(request)
-        ));
+        publisher.publishEvent(new RegistrationCompleteEvent(user, applicationUrl(request)));
         return "Success";
     }
 
@@ -45,10 +42,8 @@ public class RegistrationController {
 
 
     @GetMapping("/resendVerifyToken")
-    public String resendVerificationToken(@RequestParam("token") String oldToken,
-                                          HttpServletRequest request) {
-        VerificationToken verificationToken
-                = userService.generateNewVerificationToken(oldToken);
+    public String resendVerificationToken(@RequestParam("token") String oldToken, HttpServletRequest request) {
+        VerificationToken verificationToken = userService.generateNewVerificationToken(oldToken);
         User user = verificationToken.getUser();
         resendVerificationTokenMail(user, applicationUrl(request), verificationToken);
         return "Verification Link Sent";
@@ -67,8 +62,7 @@ public class RegistrationController {
     }
 
     @PostMapping("/savePassword")
-    public String savePassword(@RequestParam("token") String token,
-                               @RequestBody PasswordModel passwordModel) {
+    public String savePassword(@RequestParam("token") String token, @RequestBody PasswordModel passwordModel) {
         String result = userService.validatePasswordResetToken(token);
         if(!result.equalsIgnoreCase("valid")) {
             return "Invalid Token";
@@ -94,35 +88,23 @@ public class RegistrationController {
     }
 
     private String passwordResetTokenMail(User user, String applicationUrl, String token) {
-        String url =
-                applicationUrl
-                        + "/savePassword?token="
-                        + token;
+        String url = applicationUrl + "/savePassword?token=" + token;
 
         //sendVerificationEmail()
-        log.info("Click the link to Reset your Password: {}",
-                url);
+        log.info("Click the link to Reset your Password: {}", url);
         return url;
     }
 
 
     private void resendVerificationTokenMail(User user, String applicationUrl, VerificationToken verificationToken) {
-        String url =
-                applicationUrl
-                        + "/verifyRegistration?token="
-                        + verificationToken.getToken();
+        String url = applicationUrl + "/verifyRegistration?token=" + verificationToken.getToken();
 
         //sendVerificationEmail()
-        log.info("Click the link to verify your account: {}",
-                url);
+        log.info("Click the link to verify your account: {}", url);
     }
 
 
     private String applicationUrl(HttpServletRequest request) {
-        return "http://" +
-                request.getServerName() +
-                ":" +
-                request.getServerPort() +
-                request.getContextPath();
+        return "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
     }
 }
