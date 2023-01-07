@@ -15,7 +15,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/kendaraan")
+@RequestMapping("/api/kendaraan")
 public class KendaraanController {
 
     @Autowired
