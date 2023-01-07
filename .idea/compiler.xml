@@ -7,13 +7,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="oauth-authorization-server" />
         <module name="parkiran" />
         <module name="spring-security" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="oauth-resource-server" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="oauth-authorization-server" options="-parameters" />
+      <module name="oauth-resource-server" options="-parameters" />
       <module name="parkiran" options="-parameters" />
       <module name="spring-security" options="-parameters" />
     </option>

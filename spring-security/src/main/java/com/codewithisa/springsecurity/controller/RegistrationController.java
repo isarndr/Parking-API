@@ -11,6 +11,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -23,6 +24,11 @@ public class RegistrationController {
 
     @Autowired
     private ApplicationEventPublisher publisher;
+
+    @GetMapping("/api/hello")
+    public String hello( ) {
+        return "Hello " +", Welcome to Parking API";
+    }
 
     @PostMapping("/register")
     public String registerUser(@RequestBody UserModel userModel, final HttpServletRequest request) {
