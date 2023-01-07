@@ -16,7 +16,6 @@
     </properties>
 
     <modules>
-        <module>parkiran</module>
         <module>spring-security</module>
         <module>oauth-authorization-server</module>
     </modules>
