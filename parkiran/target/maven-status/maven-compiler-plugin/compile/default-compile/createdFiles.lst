@@ -1,0 +1,14 @@
+com\codewithisa\parkiran\ParkiranApplication.class
+com\codewithisa\parkiran\service\KendaraanServiceImpl.class
+com\codewithisa\parkiran\model\Kendaraan$KendaraanBuilder.class
+com\codewithisa\parkiran\model\Parkiran$ParkiranBuilder.class
+com\codewithisa\parkiran\model\Parkiran.class
+com\codewithisa\parkiran\service\ParkiranServiceImpl.class
+com\codewithisa\parkiran\repository\KendaraanRepository.class
+com\codewithisa\parkiran\controller\KendaraanController.class
+com\codewithisa\parkiran\repository\ParkiranRepository.class
+com\codewithisa\parkiran\model\request\KendaraanRequest.class
+com\codewithisa\parkiran\model\Kendaraan.class
+com\codewithisa\parkiran\configuration\SwaggerConfiguration.class
+com\codewithisa\parkiran\service\KendaraanService.class
+com\codewithisa\parkiran\service\ParkiranService.class

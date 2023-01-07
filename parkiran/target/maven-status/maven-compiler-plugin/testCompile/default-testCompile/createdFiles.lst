@@ -1,0 +1,4 @@
+com\codewithisa\parkiran\service\ParkiranServiceTest.class
+com\codewithisa\parkiran\ParkiranApplicationTests.class
+com\codewithisa\parkiran\service\KendaraanServiceTest.class
+com\codewithisa\parkiran\repository\KendaraanRepositoryTest.class
